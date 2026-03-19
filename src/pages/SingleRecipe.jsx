@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { recipecontext } from '../context/RecipeContext'
 import { nanoid } from 'nanoid'
@@ -34,6 +34,13 @@ const SingleRecipe = () => {
         toast.success("Recipe Deleted")
         navigate("/recipes")
     }
+
+    useEffect(() => {
+        console.log("SingleRecipe.jsx Mounted");
+        return () => {
+            console.log("SingleRecipe.jsx Unmount");
+        }
+    }, [])
 
   return recipe ? (
   <div className='w-full flex'>
